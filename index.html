@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woard Game Geeks - Theatersport met een Bordspel Twist</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Library CSS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper CSS (Carousel) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        geeks: {
+                            yellow: '#EAB308',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::selection {
+            background-color: #EAB308;
+            color: #000;
+        }
+        body {
+            overflow-x: hidden;
+            background-color: #000;
+            color: #fff;
+        }
+        
+        /* Swiper carousel custom styling */
+        .swiper {
+            width: 100%;
+            padding-top: 40px;
+            padding-bottom: 60px;
+        }
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 280px;
+            height: 280px;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 2px solid #EAB308;
+        }
+        @media (min-width: 768px) {
+            .swiper-slide {
+                width: 350px;
+                height: 350px;
+            }
+        }
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Navbar styling on scroll */
+        .scrolled-nav {
+            background-color: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(234, 179, 8, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-black/80 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Navbar -->
+                <a href="#" class="flex-shrink-0 flex items-center">
+                    <img src="logo.png" alt="Woard Game Geeks Logo" class="h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]">
+                </a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#over-ons" class="text-white hover:text-yellow-400 font-semibold transition-colors">Over ons</a>
+                    <a href="#leden" class="text-white hover:text-yellow-400 font-semibold transition-colors">Leden</a>
+                    <a href="#boek-ons" class="text-white hover:text-yellow-400 font-semibold transition-colors">Boek ons</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <a href="#boek-ons" class="bg-yellow-500 text-black px-4 py-2 rounded-full font-bold text-sm">Boek ons</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Over Ons Sectie -->
+    <section id="over-ons" class="relative min-h-screen flex items-center justify-start pt-20" style="background-image: url('wwg.jpg'); background-size: cover; background-position: center;">
+        <!-- Overlay om de achtergrond iets donkerder te maken voor contrast -->
+        <div class="absolute inset-0 bg-black/40"></div>
+        
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
+            <!-- Het transparante blok zoals in het voorbeeld -->
+            <div class="max-w-3xl bg-black/85 backdrop-blur-sm border-l-4 border-yellow-500 rounded-r-2xl p-8 md:p-12 shadow-[0_10px_40px_rgba(0,0,0,0.8)]" data-aos="fade-right" data-aos-duration="1200">
+                
+                <h1 class="text-4xl md:text-6xl font-extrabold text-yellow-400 mb-4 drop-shadow-md">
+                    Woard Game Geeks
+                </h1>
+                <hr class="border-zinc-700 mb-6">
+                <p class="text-xl text-gray-200 font-semibold mb-8">
+                    Improvisatie theater met als twist iedereen zijn favoriete bordspellen. 
+                </p>
+                
+                <div class="text-gray-200 text-base md:text-lg leading-relaxed space-y-4 mb-8">
+                    <p>
+                    We hebben een Monopoly, want we zijn de enige in Nederland met dit unieke concept. 
+                    </p>
+                </div>
+
+                <!-- Actieknoppen in de hero -->
+                <div class="flex flex-wrap gap-4">
+                    <a href="#leden" class="bg-transparent border-2 border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-black font-bold py-3 px-8 rounded-full transition-all duration-300">
+                        Leden
+                    </a>
+                    <a href="#boek-ons" class="bg-yellow-500 text-black hover:bg-yellow-400 font-bold py-3 px-8 rounded-full shadow-[0_0_15px_rgba(234,179,8,0.4)] transition-all duration-300 transform hover:-translate-y-1">
+                        Boek Ons
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Groot Logo Sectie (Tussen Opening en Leden) -->
+    <section class="py-16 bg-black flex justify-center items-center border-y border-zinc-900" data-aos="fade-up" data-aos-duration="1000">
+        <img src="logo.png" alt="Woard Game Geeks Logo Groot" class="w-full max-w-md md:max-w-2xl px-6 drop-shadow-[0_0_20px_rgba(234,179,8,0.3)]">
+    </section>
+
+    <!-- De Spelers / Leden Sectie -->
+    <section id="leden" class="py-24 px-6 sm:px-12 lg:px-24 bg-zinc-950">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Introductietekst Spelers -->
+            <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-yellow-400 mb-8 uppercase tracking-wider">Wie zijn de Woard game geeks</h2>
+                <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
+        Wij brengen de ultieme cross-over tussen de hilariteit van De Lama's en je wekelijkse spellenavond. Op het podium staan vier improvisatiehelden én die-hard bordspelnerds. Verwacht vlijmscherpe, onvoorspelbare scènes die doorspekt zijn met herkenbare bordspelreferenties. We gooien altijd 6 en de combo's aan grappen zorgen ervoor dat de engine builder aan lachen zo ontspoort dat je vergeet dat je aan het einde van de ronde je werkers nog moet voeden!
+              </p>
+                <p class="text-lg md:text-xl text-yellow-400 font-semibold mb-12">
+                    Geen paniek: de scènes duren gelukkig een stuk korter dan de speluitleg van Twilight imperium, en we beloven dat we de show niet stil leggen vanwege analysis paralysis.  
+                </p>
+            </div>
+            
+            <!-- Spelers Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Speler 1: Michiel -->
+                <div class="bg-black rounded-2xl p-6 border border-zinc-800 hover:border-yellow-500 transition-colors duration-300 group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-full aspect-square bg-zinc-800 rounded-xl mb-6 overflow-hidden relative">
+                        <img src="Michiel.jpg" alt="Michiel" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-3 transition-colors">Michiel</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        De man die meer dan 300 regelboeken helemaal uit zijn hoofd kent.
+                    </p>
+                </div>
+
+                <!-- Speler 2: Jordann -->
+                <div class="bg-black rounded-2xl p-6 border border-zinc-800 hover:border-yellow-500 transition-colors duration-300 group" data-aos="fade-up" data-aos-delay="150">
+                    <div class="w-full aspect-square bg-zinc-800 rounded-xl mb-6 overflow-hidden relative">
+                        <img src="Jordann.jpg" alt="Jordann" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-3 transition-colors">Jordann</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        De man die zelfs college geeft over zijn statistieken van BGstats.
+                    </p>
+                </div>
+
+                <!-- Speler 3: Harro -->
+                <div class="bg-black rounded-2xl p-6 border border-zinc-800 hover:border-yellow-500 transition-colors duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-full aspect-square bg-zinc-800 rounded-xl mb-6 overflow-hidden relative">
+                        <img src="Harro2.jpg" alt="Harro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-3 transition-colors">Harro</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        De man wiens analyse nooit tot paralyses leidt, maar altijd leid tot de winst.
+                    </p>
+                </div>
+
+                <!-- Speler 4: Eddy -->
+                <div class="bg-black rounded-2xl p-6 border border-zinc-800 hover:border-yellow-500 transition-colors duration-300 group" data-aos="fade-up" data-aos-delay="450">
+                    <div class="w-full aspect-square bg-zinc-800 rounded-xl mb-6 overflow-hidden relative">
+                        <img src="Eddy.JPG" alt="Eddy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-3 transition-colors">Eddy</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        De man die vaker praat over bordgames dan dat hij ze speelt.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Foto Carrousel -->
+    <section class="py-16 bg-black overflow-hidden border-y border-zinc-900">
+        <div class="max-w-7xl mx-auto" data-aos="zoom-in" data-aos-duration="1200">
+            <h2 class="text-center text-2xl font-bold text-zinc-500 mb-2 tracking-widest uppercase">Galerij</h2>
+            
+            <!-- Swiper Container -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="draak2.jpg" alt="Actiefoto Michiel"></div>
+                    <div class="swiper-slide"><img src="Gluren.jpg" alt="Optreden Gluren bij de Buren"></div>
+                    <div class="swiper-slide"><img src="harro.jpg" alt="Optreden Harro"></div>
+                    <div class="swiper-slide"><img src="panel.jpg" alt="Optreden Eddy"></div>
+                    <div class="swiper-slide"><img src="spiel.jpg" alt="Geeks op Spiel"></div>
+                    <div class="swiper-slide"><img src="wwg.jpg" alt="Woard Game Geeks in actie"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Boeken -->
+    <section id="boek-ons" class="py-24 px-6 sm:px-12 lg:px-24 bg-zinc-950 relative">
+        <!-- Subtiele achtergrond glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-yellow-900/20 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+            
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">
+                Klaar voor de start?
+            </h2>
+
+            <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
+                We treden op op feesten en partijen, bordspelavonden, bedrijfsfeesten (voornamelijk van bordspel uitgevers) en natuurlijk we spelen graag een spelletje mee nadat we hebben opgetreden.
+            </p>
+            
+            <a href="mailto:info@woardgamegeeks.nl" class="inline-block bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold uppercase tracking-wide text-lg md:text-xl py-5 px-12 rounded-full shadow-[0_0_20px_rgba(234,179,8,0.4)] hover:shadow-[0_0_30px_rgba(234,179,8,0.7)] transform hover:-translate-y-1 transition-all duration-300">
+                Boek Ons
+            </a>
+            
+            <!-- Extra Mailadres Weergave -->
+            <div class="mt-8">
+                <a href="mailto:info@woardgamegeeks.nl" class="text-yellow-400 font-bold text-xl md:text-2xl hover:text-yellow-300 transition-colors drop-shadow-md">
+                    info@woardgamegeeks.nl
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center bg-black border-t border-zinc-900">
+        <p class="text-zinc-600 text-sm">
+            &copy; <script>document.write(new Date().getFullYear())</script> Woard Game Geeks. Alle rechten voorbehouden.
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Init AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+        });
+
+        // Init Swiper
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            coverflowEffect: {
+                rotate: 15,
+                stretch: 0,
+                depth: 150,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+
+        // Navbar achtergrond effect bij scrollen
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled-nav');
+            } else {
+                navbar.classList.remove('scrolled-nav');
+            }
+        });
+    </script>
+</body>
+</html>
